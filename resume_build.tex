@@ -1,0 +1,106 @@
+\documentclass[11pt]{article}       % set main text size
+\usepackage[letterpaper,                % set paper size to letterpaper. change to a4paper for resumes outside of North America
+top=0.5in,                          % specify top page margin
+bottom=0.5in,                       % specify bottom page margin
+left=0.5in,                         % specify left page margin
+right=0.5in]{geometry}              % specify right page margin
+                       
+\usepackage{XCharter}               % set font. comment this line out if you want to use the default LaTeX font Computer Modern
+\usepackage[T1]{fontenc}            % output encoding
+\usepackage[utf8]{inputenc}         % input encoding
+\usepackage{enumitem}               % enable lists for bullet points: itemize and \item
+\usepackage[hidelinks]{hyperref}    % format hyperlinks
+\usepackage{titlesec}               % enable section title customization
+\raggedright                        % disable text justification
+\pagestyle{empty}                   % disable page numbering
+
+% ensure PDF output will be all-Unicode and machine-readable
+
+% format section headings: bolding, size, white space above and below
+\titleformat{\section}{\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule\vspace{-6.5pt}]
+
+% format bullet points: size, white space above and below, white space between bullets
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\setlist[itemize]{itemsep=-2pt, leftmargin=12pt, topsep=7pt} %%% Test various topsep values to fix vertical spacing errors
+
+% resume starts here
+\begin{document}
+
+% name
+\centerline{\Huge Dylan Dalal}
+
+\vspace{5pt}
+
+% contact information
+\centerline{\href{mailto:dylan@example.com}{dylan@example.com} | \href{https://github.com/DylanDalal}{github}}
+
+\vspace{-10pt}
+
+\vspace{-6.5pt}
+
+% experience section
+\section*{Experience}
+\textbf{Pipeline Intern,} {Monster/Aliens/Robots/Zombies (MARZ) VFX} -- Remote \hfill Apr 2022 -- Jun 2023 \
+\vspace{-5pt}
+\begin{itemize}
+  \item Developed GAN-based AI VFX solution VanityAI, increasing VFX pipeline efficiency by 300x
+  \item Designed SQL and noSQL databases to store OpenCV-assembled shots for review in Shotgrid
+  \item Architected unit test suite for pipeline tools adopted by entire pipeline engineering team
+  \item Collaborated with stakeholders to gather requirements and feedback on user experience
+\end{itemize}
+
+\textbf{Pipeline TD,} {Premise Entertainment, Inc.} -- Remote \hfill Jul 2023 -- Sep 2024 \
+\vspace{-5pt}
+\begin{itemize}
+  \item Designed a Python-based asset assembly and publishing pipeline for animated production
+  \item Developed ftrack-integrated tools to manage complex asset handoffs between departments
+  \item Increased event handler efficiency by 97\% through custom ML-driven scheduling algorithms
+  \item Created deployable Python shelf tools for 100+ artists across multiple DCCs
+\end{itemize}
+
+\textbf{Software Engineer Researcher,} {FSU Department of Psychology} -- Tallahassee, FL \hfill Aug 2021 -- Jul 2023 \
+\vspace{-5pt}
+\begin{itemize}
+  \item Created Python data processing pipelines using NumPy, pandas, and RegEx
+  \item Developed automation scripts to eliminate participant bias and clean experimental datasets
+\end{itemize}
+
+
+% \textbf{Job Title,} \href{https://www.fstl1992.com/}{Company} -- City, ST \hfill XXXX -- XXXX \\
+% \vspace{-9pt}
+
+\vspace{-18.5pt}
+
+% projects section
+\section*{Projects}
+\textbf{Eren, A.I. Assistant Project Manager} \hfill \href{https://github.com/DylanDalal/taskmanager}{https://github.com/DylanDalal/taskmanager} \
+\vspace{-9pt}
+\begin{itemize}
+  \item Automatically handles project backlogs, tasks, and prioritization using targeted calls to LLMs
+  \item Includes workflows for managing video production and software development projects
+\end{itemize}
+
+\textbf{Passport} \hfill \href{https://github.com/DylanDalal/travel_app}{https://github.com/DylanDalal/travel\_app} \
+\vspace{-9pt}
+\begin{itemize}
+  \item Built a trip detection algorithm using ML to analyze photo location metadata
+  \item Developed Dart-based frontend in Flutter, supporting iOS, Android, and web deployment
+\end{itemize}
+
+
+% alternate formatting for projects section
+% \section*{Projects}
+% \begin{itemize}
+%   \item \textbf{QuantSoftware Toolkit:} Open source Python library for data analysis and machine learning for finance
+%   \item \textbf{GitHub Visualization:} Data visualization of Git Log data using D3 to analyze project trends over time
+%   \item \textbf{Recommendation System:} Music and movie recommender systems using collaborative filtering on public datasets
+%   \item \textbf{Mac Setup:} Book that gives step by step instructions on setting up developer environment on Mac OS
+% \end{itemize}
+
+\vspace{-18.5pt}
+
+% education section
+\section*{Education}
+
+
+\end{document}

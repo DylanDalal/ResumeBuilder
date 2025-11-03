@@ -1,0 +1,22 @@
+{
+  "name": "Dylan Dalal",
+  "contact": {
+    "email": "dylanmax@gmail.com",
+    "portfolio": "https://dylandalal.com",
+    "github": "https://github.com/DylanDalal",
+    "linkedin": "https://linkedin.com/in/DylanDalal"
+  },
+  "education": [
+    {
+      "degree": "B.S. Computer Science",
+      "institution": "Florida State University",
+      "start_date": "Jul 2019",
+      "end_date": "Dec 2022",
+      "highlights": [
+        "Minors in Mathematics, Physics & Film Studies",
+        "Student President of the College of Arts and Sciences"
+      ]
+    }
+  ]
+}
+

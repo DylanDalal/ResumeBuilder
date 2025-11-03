@@ -1,0 +1,91 @@
+[
+  {
+    "id": "job-1",
+    "title": "Frontend Software Engineer",
+    "company": "Airtab Music, Inc.",
+    "location": "Remote",
+    "start_date": "Nov 2024",
+    "end_date": "August 2025",
+    "bullets": [
+      "Designed and developed www.openforanicon.com and www.airtabmedia.com using Framer and React",
+      "Collaborated with the marketing team to build brand identity through web presence",
+      "Advised Airtab Music team on software engineering best practices and backend architecture",
+      "Supported full-stack development of a cross-platform application using React Native"
+    ],
+    "tags": ["consulting", "software", "react-native", "backend", "fullstack", "frontend"]
+  },
+  {
+    "id": "job-2",
+    "title": "Pipeline TD",
+    "company": "Premise Entertainment, Inc.",
+    "location": "Remote",
+    "start_date": "Jul 2023",
+    "end_date": "Sep 2024",
+    "bullets": [
+      "Designed a Python-based asset assembly and publishing pipeline for animated production",
+      "Developed ftrack-integrated tools to manage complex asset handoffs between departments",
+      "Built Maya/Houdini pipelines that interfaced with large scale web applications",
+      "Increased event handler efficiency by 97% through custom ML-driven scheduling algorithm",
+      "Created deployable Python shelf tools for 100+ artists across multiple DCCs"
+    ],
+    "tags": ["python", "animation", "pipeline", "ftrack", "ML"]
+  },
+  {
+    "id": "job-3",
+    "title": "Pipeline Intern",
+    "company": "Monster/Aliens/Robots/Zombies VFX",
+    "location": "Remote",
+    "start_date": "Apr 2022",
+    "end_date": "Jun 2023",
+    "bullets": [
+      "Developed GAN-based AI VFX solution VanityAI, increasing VFX pipeline efficiency by 300x",
+      "Designed SQL and noSQL databases to store OpenCV-assembled shots for review in Shotgrid",
+      "Architected unit test suite for pipeline tools adopted by entire pipeline engineering team",
+      "Collaborated with stakeholders to gather requirements and feedback on user experience"
+    ],
+    "tags": ["vfx", "python", "sql", "nosql", "opencv", "gan", "backend", "machine learning", "databases"]
+  },
+  {
+    "id": "job-4",
+    "title": "Software Engineer Researcher",
+    "company": "FSU Department of Psychology",
+    "location": "Tallahassee, FL",
+    "start_date": "Aug 2021",
+    "end_date": "Jul 2023",
+    "bullets": [
+      "Created Python data processing pipelines using NumPy, pandas, and RegEx",
+      "Developed automation scripts to eliminate participant bias and clean experimental datasets"
+    ],
+    "tags": ["python", "data", "automation", "research", "backend"]
+  },
+  {
+    "id": "job-5",
+    "title": "Software Engineer Researcher",
+    "company": "FSU College of Motion Picture Arts",
+    "location": "Tallahassee, FL",
+    "start_date": "Jan 2021",
+    "end_date": "Dec 2023",
+    "bullets": [
+      "Developed core infrastructure and pipeline tools to support LED volume film production",
+      "Created cross-team Python I/O scripts and C++ UE plugins for ingest/playback",
+      "Built Florida’s first public education VP stage using Unreal Engine and real-time tools",
+      "Led tech strategy for the launch of an industry-first Virtual Production MFA specialization",
+      "Built an academic virtual reality game using Unreal Engine, Python, and C++"
+    ],
+    "tags": ["unreal", "python", "cpp", "virtual-production", "film", "research"]
+  },
+  {
+    "id": "job-6",
+    "title": "Founding Engineer",
+    "company": "TIPT",
+    "location": "West Palm Beach, FL",
+    "start_date": "Aug 2025",
+    "end_date": "Present",
+    "bullets": [
+      "Architected full Vite-powered frontend and Firebase-built backend (auth, Firestore, & storage)",
+      "Profile customization includes automatic color extraction, dynamic sizes, link management",
+      "Stripe integration enables end-to-end payments entirely over the web"
+    ],
+    "tags": ["vite", "firebase", "stripe", "frontend", "backend", "fullstack", "react"]
+  }
+]

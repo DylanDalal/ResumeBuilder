@@ -1,0 +1,38 @@
+[
+  {
+    "id": "proj-1",
+    "name": "Eren, A.I. Assistant Project Manager",
+    "link": "https://github.com/DylanDalal/taskmanager",
+    "start_date": "July 2024",
+    "end_date": "Present",
+    "bullets": [
+      "Automatically handles project backlogs, tasks, and prioritization using targeted calls to LLMs",
+      "Includes workflows for managing video production and software development projects"
+    ],
+    "tags": ["ai", "llm", "automation", "project-management"]
+  },
+  {
+    "id": "proj-2",
+    "name": "Passport",
+    "link": "https://github.com/DylanDalal/travel_app",
+    "start_date": "Jan 2024",
+    "end_date": "Present",
+    "bullets": [
+      "Built a trip detection algorithm using ML to analyze photo location metadata",
+      "Developed Dart-based frontend in Flutter, supporting iOS, Android, and web deployment"
+    ],
+    "tags": ["flutter", "dart", "ml", "mobile", "cross-platform"]
+  },
+  {
+    "id": "proj-3",
+    "name": "ResumeBuilder",
+    "link": "https://github.com/username/ResumeBuilder",
+    "start_date": "Nov 2024",
+    "bullets": [
+      "Python CLI that generates tailored LaTeX resumes",
+      "Uses OpenAI to select relevant roles and bullets",
+      "Compiles final PDF via pdflatex"
+    ],
+    "tags": ["python", "cli", "latex"]
+  }
+]

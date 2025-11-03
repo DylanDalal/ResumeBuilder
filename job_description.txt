@@ -1,0 +1,24 @@
+Kforce has a client that is seeking a Full Stack Developer in West Palm Beach, FL. Duties:
+
+ Full Stack Developer will be responsible for the writing and updating full stack applications on existing hardware and business processes
+ Provides technical or functional guidance to project or work teams as needed within a specific discipline
+ Collaborates on an on-going basis with the Business and Scrum Master
+ Analyzes, designs, develops, tests, debugs, implements, maintains and/or enhances existing or new systems that are reliable and efficient
+ As a Full Stack Developer, you will analyze, updates, enhances existing systems
+ Practitioner of Agile methodology, software lifecycle, scrum ceremonies
+
+Requirements
+
+ 0-2 years of experience
+ Tailwind CSS
+ MEAN stack development/understanding
+ PWA development
+ Understanding of CVS (Code Repo). Experience with GitHub
+ Understanding of Database SQL
+ Understanding of technical debt and debt reduction
+ RDBMS a plus: SQL Server, Oracle, PostgreSQL, etc.
+ Clear communication and analytical/problem solving skills
+ Requirements gathering and working directly with engineers and specialist
+ Good Enterprise experience opportunity
+ Ability to develop & firefight: JS Framework Angular & NestJS
+ Hybrid work schedule required (West Palm Beach area offices)
