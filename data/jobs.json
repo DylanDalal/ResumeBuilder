@@ -22,10 +22,16 @@
     "start_date": "Jul 2023",
     "end_date": "Sep 2024",
     "bullets": [
-      "Designed a Python-based asset assembly and publishing pipeline for animated production",
-      "Developed ftrack-integrated tools to manage complex asset handoffs between departments",
-      "Built Maya/Houdini pipelines that interfaced with large scale web applications",
+      "Designed a Python-based asset assembly and publishing pipeline for an animated feature film",
       "Increased event handler efficiency by 97% through custom ML-driven scheduling algorithm",
+      {
+        "text": "Developed ftrack-integrated tools to manage complex asset handoffs between departments",
+        "group": "premise-web"
+      },
+      {
+        "text": "Built Maya/Houdini pipelines that interfaced with large scale web applications",
+        "group": "premise-web"
+      },
       "Created deployable Python shelf tools for 100+ artists across multiple DCCs"
     ],
     "tags": ["python", "animation", "pipeline", "ftrack", "ML"]
@@ -41,7 +47,10 @@
       "Developed GAN-based AI VFX solution VanityAI, increasing VFX pipeline efficiency by 300x",
       "Designed SQL and noSQL databases to store OpenCV-assembled shots for review in Shotgrid",
       "Architected unit test suite for pipeline tools adopted by entire pipeline engineering team",
-      "Collaborated with stakeholders to gather requirements and feedback on user experience"
+      {
+        "text": "Collaborated with stakeholders to gather requirements and feedback on user experience",
+        "group": "ml-optimization"
+      }
     ],
     "tags": ["vfx", "python", "sql", "nosql", "opencv", "gan", "backend", "machine learning", "databases"]
   },

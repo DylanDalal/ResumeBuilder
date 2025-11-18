@@ -1,10 +1,10 @@
 {
-  "name": "Dylan Dalal",
+  "name": "Your Name",
   "contact": {
-    "email": "dylanmax@gmail.com",
-    "portfolio": "https://dylandalal.com",
-    "github": "https://github.com/DylanDalal",
-    "linkedin": "https://linkedin.com/in/DylanDalal"
+    "email": "your.email@example.com",
+    "portfolio": "https://example.com",
+    "github": "https://github.com/username",
+    "linkedin": "https://linkedin.com/in/username"
   },
   "education": [
     {

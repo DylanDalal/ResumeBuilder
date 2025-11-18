@@ -31,7 +31,9 @@ def call_openai_selection(api_key: str, job_description: str, jobs: List[Dict[st
                 "Only use bullets by index from the given entries. "
                 "IMPORTANT: Fill the resume. Select 3-5 most relevant jobs and 2-3 most relevant projects. "
                 "For each selected job/project, include 2-4 bullets. Prioritize relevance but ensure the resume is well-populated. "
-                "If needed, include less-relevant experience to fill the page. Total bullets should be around 35 to create a full resume."
+                "If needed, include less-relevant experience to fill the page. Total bullets should be around 35 to create a full resume. "
+                "NOTE: Some bullets may have a 'group' field. If multiple bullets share the same group, only one will be included in the final resume. "
+                "You can still select multiple bullets from the same group, but the system will automatically filter to keep only one."
             )
             user = json.dumps({
                 "job_description": job_description,
@@ -60,7 +62,9 @@ def call_openai_selection(api_key: str, job_description: str, jobs: List[Dict[st
                 "Only use bullets by index from the given entries. "
                 "IMPORTANT: Fill the resume generously. Select 3-5 most relevant jobs and 2-3 most relevant projects. "
                 "For each selected job/project, include 2-4 bullets. Prioritize relevance but ensure the resume is well-populated. "
-                "If needed, include less-relevant experience to fill the page. Total bullets should be 15-25 to create a full resume."
+                "If needed, include less-relevant experience to fill the page. Total bullets should be 15-25 to create a full resume. "
+                "NOTE: Some bullets may have a 'group' field. If multiple bullets share the same group, only one will be included in the final resume. "
+                "You can still select multiple bullets from the same group, but the system will automatically filter to keep only one."
             )
             user = json.dumps({
                 "job_description": job_description,
@@ -80,6 +84,40 @@ def call_openai_selection(api_key: str, job_description: str, jobs: List[Dict[st
     except Exception:
         # If API fails, return empty selection to avoid crashing
         return {"selected_jobs": [], "selected_projects": [], "skills": {}}
+
+
+def _normalize_bullet(bullet: Any) -> Dict[str, Any]:
+    """Normalize a bullet to a dict with 'text' and optional 'group'.
+    Supports backward compatibility: strings become {'text': string}.
+    """
+    if isinstance(bullet, str):
+        return {"text": bullet}
+    elif isinstance(bullet, dict):
+        return {"text": bullet.get("text", ""), "group": bullet.get("group")}
+    else:
+        return {"text": str(bullet)}
+
+
+def _filter_conflicting_bullets(bullets: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Filter bullets to ensure only one bullet per group is included.
+    If multiple bullets share the same group, keep only the first one.
+    Bullets without a group are always included.
+    """
+    seen_groups: set[str] = set()
+    filtered: List[Dict[str, Any]] = []
+    
+    for bullet in bullets:
+        group = bullet.get("group")
+        if group:
+            if group not in seen_groups:
+                seen_groups.add(group)
+                filtered.append(bullet)
+            # Skip if we've already seen this group
+        else:
+            # Bullets without a group are always included
+            filtered.append(bullet)
+    
+    return filtered
 
 
 def _parse_date_for_sorting(date_str: str) -> tuple:
@@ -131,21 +169,76 @@ def build_payload(
     id_to_job = {j["id"]: j for j in jobs}
     id_to_project = {p["id"]: p for p in projects}
 
-    selected_jobs_payload: List[Dict[str, Any]] = []
+    # Collect all bullets with metadata about their source
+    all_bullets_with_metadata: List[Dict[str, Any]] = []
+    
+    # Collect bullets from jobs
     for item in selection.get("selected_jobs", []):
         job = id_to_job.get(item.get("id"))
         if not job:
             continue
         indices = item.get("bullet_indices", [])
-        bullets = [job.get("bullets", [])[i] for i in indices if 0 <= i < len(job.get("bullets", []))]
-        selected_jobs_payload.append({
-            "title": job.get("title", ""),
-            "company": job.get("company", ""),
-            "location": job.get("location", ""),
-            "start_date": job.get("start_date", ""),
-            "end_date": job.get("end_date", "Present"),
-            "bullets": bullets,
-        })
+        raw_bullets = [job.get("bullets", [])[i] for i in indices if 0 <= i < len(job.get("bullets", []))]
+        for bullet in raw_bullets:
+            normalized = _normalize_bullet(bullet)
+            all_bullets_with_metadata.append({
+                **normalized,
+                "source_type": "job",
+                "source_id": item.get("id"),
+                "job_data": job,
+            })
+    
+    # Collect bullets from projects
+    for item in selection.get("selected_projects", []):
+        pr = id_to_project.get(item.get("id"))
+        if not pr:
+            continue
+        indices = item.get("bullet_indices", [])
+        raw_bullets = [pr.get("bullets", [])[i] for i in indices if 0 <= i < len(pr.get("bullets", []))]
+        for bullet in raw_bullets:
+            normalized = _normalize_bullet(bullet)
+            all_bullets_with_metadata.append({
+                **normalized,
+                "source_type": "project",
+                "source_id": item.get("id"),
+                "project_data": pr,
+            })
+    
+    # Filter conflicting bullets globally (across all jobs and projects)
+    filtered_bullets = _filter_conflicting_bullets(all_bullets_with_metadata)
+    
+    # Reconstruct jobs and projects from filtered bullets
+    job_bullets_map: Dict[str, List[str]] = {}  # job_id -> list of bullet texts
+    project_bullets_map: Dict[str, List[str]] = {}  # project_id -> list of bullet texts
+    
+    for bullet in filtered_bullets:
+        source_id = bullet.get("source_id")
+        text = bullet.get("text", "")
+        if bullet.get("source_type") == "job" and source_id:
+            if source_id not in job_bullets_map:
+                job_bullets_map[source_id] = []
+            job_bullets_map[source_id].append(text)
+        elif bullet.get("source_type") == "project" and source_id:
+            if source_id not in project_bullets_map:
+                project_bullets_map[source_id] = []
+            project_bullets_map[source_id].append(text)
+    
+    # Build jobs payload
+    selected_jobs_payload: List[Dict[str, Any]] = []
+    for item in selection.get("selected_jobs", []):
+        job = id_to_job.get(item.get("id"))
+        if not job:
+            continue
+        bullets = job_bullets_map.get(item.get("id"), [])
+        if bullets:  # Only include jobs that have bullets after filtering
+            selected_jobs_payload.append({
+                "title": job.get("title", ""),
+                "company": job.get("company", ""),
+                "location": job.get("location", ""),
+                "start_date": job.get("start_date", ""),
+                "end_date": job.get("end_date", "Present"),
+                "bullets": bullets,
+            })
     
     # Sort jobs by most recent first (by end_date, then start_date)
     selected_jobs_payload.sort(
@@ -156,20 +249,21 @@ def build_payload(
         reverse=True
     )
 
+    # Build projects payload
     selected_projects_payload: List[Dict[str, Any]] = []
     for item in selection.get("selected_projects", []):
         pr = id_to_project.get(item.get("id"))
         if not pr:
             continue
-        indices = item.get("bullet_indices", [])
-        bullets = [pr.get("bullets", [])[i] for i in indices if 0 <= i < len(pr.get("bullets", []))]
-        selected_projects_payload.append({
-            "name": pr.get("name", ""),
-            "link": pr.get("link"),
-            "start_date": pr.get("start_date", ""),
-            "end_date": pr.get("end_date", ""),
-            "bullets": bullets,
-        })
+        bullets = project_bullets_map.get(item.get("id"), [])
+        if bullets:  # Only include projects that have bullets after filtering
+            selected_projects_payload.append({
+                "name": pr.get("name", ""),
+                "link": pr.get("link"),
+                "start_date": pr.get("start_date", ""),
+                "end_date": pr.get("end_date", ""),
+                "bullets": bullets,
+            })
     
     # Sort projects by most recent first (by end_date if available, else start_date)
     selected_projects_payload.sort(

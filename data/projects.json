@@ -26,12 +26,26 @@
   {
     "id": "proj-3",
     "name": "ResumeBuilder",
-    "link": "https://github.com/username/ResumeBuilder",
+    "link": "https://github.com/DylanDalal/ResumeBuilder",
     "start_date": "Nov 2024",
+    "end_date": "Present",
     "bullets": [
       "Python CLI that generates tailored LaTeX resumes",
       "Uses OpenAI to select relevant roles and bullets",
       "Compiles final PDF via pdflatex"
+    ],
+    "tags": ["python", "cli", "latex"]
+  },
+  {
+    "id": "proj-3",
+    "name": "AutoTube",
+    "link": "https://github.com/DylanDalal/AutoTube",
+    "start_date": "Apr 2025",
+    "end_date": "Jun 2025",
+    "bullets": [
+      "Python pipeline to automatically create YouTube shorts",
+      "Scrape top posts across any subreddit using reddit’s python library PRAW",
+      "Analyze and rewrite script using OpenAI's o4-mini model"
     ],
     "tags": ["python", "cli", "latex"]
   }

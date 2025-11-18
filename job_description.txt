@@ -1,24 +1,43 @@
-Kforce has a client that is seeking a Full Stack Developer in West Palm Beach, FL. Duties:
+Rehearsals is backed by a16z, 25madison, Factorial, and notable angels from DeepMind and OpenAI including Logan Kilpatrick. The founding team is ex-DeepMind, Databricks, and Google Labs. 
 
- Full Stack Developer will be responsible for the writing and updating full stack applications on existing hardware and business processes
- Provides technical or functional guidance to project or work teams as needed within a specific discipline
- Collaborates on an on-going basis with the Business and Scrum Master
- Analyzes, designs, develops, tests, debugs, implements, maintains and/or enhances existing or new systems that are reliable and efficient
- As a Full Stack Developer, you will analyze, updates, enhances existing systems
- Practitioner of Agile methodology, software lifecycle, scrum ceremonies
 
-Requirements
 
- 0-2 years of experience
- Tailwind CSS
- MEAN stack development/understanding
- PWA development
- Understanding of CVS (Code Repo). Experience with GitHub
- Understanding of Database SQL
- Understanding of technical debt and debt reduction
- RDBMS a plus: SQL Server, Oracle, PostgreSQL, etc.
- Clear communication and analytical/problem solving skills
- Requirements gathering and working directly with engineers and specialist
- Good Enterprise experience opportunity
- Ability to develop & firefight: JS Framework Angular & NestJS
- Hybrid work schedule required (West Palm Beach area offices)
+We have founded acquired companies (x2), led Gemini computer-use and tool-use, built Google Lens, post-trained SOTA coding models, and been awarded 25+ patents between us. Our customers include F50 public companies, unicorn tech startups and household name B2C products.
+
+
+We’re building on the bleeding edge of AI, simulating human preference and actions via our revealed preference engine. We’re already working with category leaders, from hospitality to AI startups, to tell them what their customers want in minutes.
+
+
+You will be part of the founding team and build your life's work. We focus on core pillars of ownership, agency, craft, and conscientiousness in everyone that we hire.
+
+
+What You’ll Do
+
+Build the full-stack experience of how the world will experience the future of AI simulations in a modern web dev stack (TypeScript, Next, React).
+Work on our data stack, including being the in-house expert on data scraping.
+Run experiments to improve our revealed preference and simulation engines.
+Work on infrastructure such as research tooling, CI/CD, and internal code review agents that scales our impact.
+
+
+We are particularly interested in engineers with strong foundations who have a particular aptitude in either data or frontend. This could include either or both of…
+Architecting extensible and highly performant systems for processing and storing massive datasets at scale.
+Driving the development of beautiful frontends by creating a library of thoughtfully composed, reusable components.
+Ultimately your overall capability is the most important thing. Amazing generalists are always exciting to us!
+
+
+Required Qualifications
+
+Bachelors Degree in Computer Science, Math, Physics, or equivalent experience
+3+ years of experience (open source contributions count)
+A track record of shipping quality software and infrastructure in production
+Ability to work 5 days in-person in our NYC office
+
+
+Our Offer
+
+Highly competitive pay and equity package
+M4 MacBook Pro
+$200/month AI tools budget
+$1,000/month for gym membership and food
+Top-tier healthcare
+Relocation if moving to NYC
