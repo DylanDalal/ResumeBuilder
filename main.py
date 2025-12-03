@@ -29,10 +29,14 @@ def call_openai_selection(api_key: str, job_description: str, jobs: List[Dict[st
                 "Return JSON with keys: selected_jobs (list of {id, bullet_indices}), "
                 "selected_projects (list of {id, bullet_indices}), and optional skills (mapping). "
                 "Only use bullets by index from the given entries. "
-                "IMPORTANT: Fill the resume. Select 3-5 most relevant jobs and 2-3 most relevant projects. "
-                "For each selected job/project, include 2-4 bullets. Prioritize relevance but ensure the resume is well-populated. "
-                "If needed, include less-relevant experience to fill the page. Total bullets should be around 35 to create a full resume. "
-                "NOTE: Some bullets may have a 'group' field. If multiple bullets share the same group, only one will be included in the final resume. "
+                "IMPORTANT: Fill the resume. Select 3-5 most relevant jobs and 2-3 most relevant projects."
+                "Always include the present job and completed projects should be slightly prioritized over ongoing projects if they're relevant."
+                "For each selected job, include 3-4 bullets. For each selected project, include 2 bullets. Prioritize relevance but ensure the resume is well-populated."
+                "If needed, include less-relevant experience to fill the page. Total bullets should be 24."
+                "PRIORITY: Some entries may have a 'priority' field (1-10, where 10 is highest). "
+                "When relevance is similar, prioritize entries with higher priority values. "
+                "However, relevance to the job description should still be the primary factor - only use priority as a tiebreaker or to slightly favor prioritized entries when they are reasonably relevant."
+                "NOTE: Some bullets may have a 'group' field. If multiple bullets share the same group, only one will be included in the final resume."
                 "You can still select multiple bullets from the same group, but the system will automatically filter to keep only one."
             )
             user = json.dumps({
@@ -60,10 +64,14 @@ def call_openai_selection(api_key: str, job_description: str, jobs: List[Dict[st
                 "Return JSON with keys: selected_jobs (list of {id, bullet_indices}), "
                 "selected_projects (list of {id, bullet_indices}), and optional skills (mapping). "
                 "Only use bullets by index from the given entries. "
-                "IMPORTANT: Fill the resume generously. Select 3-5 most relevant jobs and 2-3 most relevant projects. "
-                "For each selected job/project, include 2-4 bullets. Prioritize relevance but ensure the resume is well-populated. "
-                "If needed, include less-relevant experience to fill the page. Total bullets should be 15-25 to create a full resume. "
-                "NOTE: Some bullets may have a 'group' field. If multiple bullets share the same group, only one will be included in the final resume. "
+                "IMPORTANT: Fill the resume generously. Select 3-5 most relevant jobs and 2-3 most relevant projects. Generally, include more jobs than projects."
+                "Always include the present job and completed projects should be slightly prioritized over ongoing projects if they're relevant."
+                "For each selected job, include 3-4 bullets. For each selected project, include 2 bullets. Prioritize relevance but ensure the resume is well-populated."
+                "If needed, include less-relevant experience to fill the page. Total bullets should be 24."
+                "PRIORITY: Some entries may have a 'priority' field (1-10, where 10 is highest). "
+                "When relevance is similar, prioritize entries with higher priority values. "
+                "However, relevance to the job description should still be the primary factor - only use priority as a tiebreaker or to slightly favor prioritized entries when they are reasonably relevant."
+                "NOTE: Some bullets may have a 'group' field. If multiple bullets share the same group, only one will be included in the final resume."
                 "You can still select multiple bullets from the same group, but the system will automatically filter to keep only one."
             )
             user = json.dumps({
@@ -156,6 +164,65 @@ def _parse_date_for_sorting(date_str: str) -> tuple:
         month = 12
     
     return (year, month)
+
+
+DEFAULT_CONTACT: Dict[str, str] = {
+    "email": "dylanmax@gmail.com",
+    "github": "https://github.com/DylanDalal",
+    "portfolio": "https://www.dylandalal.com",
+    "linkedin": "https://www.linkedin.com/in/dylandalal",
+}
+DEFAULT_FALLBACK_JOBS = 4
+DEFAULT_FALLBACK_PROJECTS = 3
+DEFAULT_FALLBACK_JOB_BULLETS = 3
+DEFAULT_FALLBACK_PROJECT_BULLETS = 2
+
+
+def _build_default_selection(
+    jobs: List[Dict[str, Any]],
+    projects: List[Dict[str, Any]],
+) -> Dict[str, List[Dict[str, Any]]]:
+    """Construct a reasonable resume selection entirely locally.
+
+    Used when the job description is sparse or the model returns no picks,
+    ensuring we can still render a strong generalized resume.
+    """
+    def _sorted_entries(entries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Sort entries by priority (if present, higher first), then by date (most recent first)."""
+        return sorted(
+            entries,
+            key=lambda x: (
+                -x.get("priority", 0),  # Negative for descending order (higher priority first)
+                _parse_date_for_sorting(x.get("end_date", "")),
+                _parse_date_for_sorting(x.get("start_date", "")),
+            ),
+            reverse=True,
+        )
+
+    selection: Dict[str, List[Dict[str, Any]]] = {
+        "selected_jobs": [],
+        "selected_projects": [],
+    }
+
+    for job in _sorted_entries(jobs):
+        if len(selection["selected_jobs"]) >= DEFAULT_FALLBACK_JOBS:
+            break
+        bullets = job.get("bullets", [])
+        if not bullets:
+            continue
+        bullet_indices = list(range(min(len(bullets), DEFAULT_FALLBACK_JOB_BULLETS)))
+        selection["selected_jobs"].append({"id": job.get("id"), "bullet_indices": bullet_indices})
+
+    for project in _sorted_entries(projects):
+        if len(selection["selected_projects"]) >= DEFAULT_FALLBACK_PROJECTS:
+            break
+        bullets = project.get("bullets", [])
+        if not bullets:
+            continue
+        bullet_indices = list(range(min(len(bullets), DEFAULT_FALLBACK_PROJECT_BULLETS)))
+        selection["selected_projects"].append({"id": project.get("id"), "bullet_indices": bullet_indices})
+
+    return selection
 
 
 def build_payload(
@@ -257,13 +324,18 @@ def build_payload(
             continue
         bullets = project_bullets_map.get(item.get("id"), [])
         if bullets:  # Only include projects that have bullets after filtering
-            selected_projects_payload.append({
+            project_payload: Dict[str, Any] = {
                 "name": pr.get("name", ""),
-                "link": pr.get("link"),
                 "start_date": pr.get("start_date", ""),
                 "end_date": pr.get("end_date", ""),
                 "bullets": bullets,
-            })
+            }
+            # Support both old "link" format and new "links" array format
+            if "links" in pr:
+                project_payload["links"] = pr.get("links", [])
+            elif "link" in pr:
+                project_payload["link"] = pr.get("link")
+            selected_projects_payload.append(project_payload)
     
     # Sort projects by most recent first (by end_date if available, else start_date)
     selected_projects_payload.sort(
@@ -320,6 +392,8 @@ def main() -> None:
             contact = {}
     else:
         contact = personal_data.get("contact", {})
+
+    merged_contact: Dict[str, str] = {**DEFAULT_CONTACT, **{k: v for k, v in contact.items() if v}}
     
     education: List[Dict[str, Any]] = []
     if args.education:
@@ -328,11 +402,19 @@ def main() -> None:
     else:
         education = personal_data.get("education", [])
 
-    selection = call_openai_selection(args.key, job_description, jobs, projects)
+    selection = call_openai_selection(args.key, job_description, jobs, projects) or {}
+    default_selection = _build_default_selection(jobs, projects)
+
+    # Ensure we always have content even when the job description is sparse
+    if not selection.get("selected_jobs"):
+        selection["selected_jobs"] = default_selection["selected_jobs"]
+    if not selection.get("selected_projects"):
+        selection["selected_projects"] = default_selection["selected_projects"]
+    selection.setdefault("skills", {})
 
     payload = build_payload(
         name=name,
-        contact=contact,
+        contact=merged_contact,
         jobs=jobs,
         projects=projects,
         selection=selection,

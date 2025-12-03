@@ -1,69 +1,63 @@
-\documentclass[11pt]{article}       % set main text size
-\usepackage[letterpaper,                % set paper size to letterpaper. change to a4paper for resumes outside of North America
-top=0.5in,                          % specify top page margin
-bottom=0.5in,                       % specify bottom page margin
-left=0.5in,                         % specify left page margin
-right=0.5in]{geometry}              % specify right page margin
-                       
-\usepackage{XCharter}               % set font. comment this line out if you want to use the default LaTeX font Computer Modern
-\usepackage[T1]{fontenc}            % output encoding
-\usepackage[utf8]{inputenc}         % input encoding
-\usepackage{enumitem}               % enable lists for bullet points: itemize and \item
-\usepackage[hidelinks]{hyperref}    % format hyperlinks - links are clickable but without visible boxes
-\usepackage{titlesec}               % enable section title customization
-\raggedright                        % disable text justification
-\pagestyle{empty}                   % disable page numbering
+\documentclass[11pt]{article}
 
-% ensure PDF output will be all-Unicode and machine-readable
+\usepackage[letterpaper,
+top=0.55in,
+bottom=0.55in,
+left=0.55in,
+right=0.55in]{geometry}
+
+\usepackage{XCharter}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\raggedright
+\pagestyle{empty}
+
+% Unicode
 \input{glyphtounicode}
 \pdfgentounicode=1
 
-% format section headings: bolding, size, white space above and below
-\titleformat{\section}{\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule\vspace{-6.5pt}]
+% Section Titles
+\titleformat{\section}{\bfseries\large}{}{0pt}{}[\vspace{2pt}\titlerule\vspace{-5.5pt}]
+\titlespacing{\section}{0pt}{6pt}{10pt}
 
-% format bullet points: size, white space above and below, white space between bullets
+% Bullet formatting
 \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
-\setlist[itemize]{itemsep=-2pt, leftmargin=12pt, topsep=1pt} % Reduced spacing between items
+\setlist[itemize]{
+  itemsep=-1pt,       % slightly more breathing room
+  topsep=2pt,
+  leftmargin=14pt
+}
 
-% resume starts here
+% Add vertical space between job blocks
+\newcommand{\jobspace}{\vspace{6pt}}
+
+% Resume begins
 \begin{document}
 
-% name
+% Name
 \centerline{\Huge %%NAME%%}
 
-\vspace{5pt}
+\vspace{6pt}
 
-% contact information
+% Contact
 \centerline{%%CONTACT_LINE%%}
 
-\vspace{-10pt}
+\vspace{12pt}
 
-\vspace{-6.5pt}
-
-% experience section
+% Experience
 \section*{Experience}
 %%EXPERIENCE_BLOCKS%%
+\jobspace
 
-% \textbf{Job Title | } \href{https://www.fstl1992.com/}{Company} (City, ST) \hfill XXXX -- XXXX \\
-
-\vspace{-18.5pt}
-
-% projects section
+% Projects
 \section*{Projects}
 %%PROJECT_BLOCKS%%
+\jobspace
 
-% alternate formatting for projects section
-% \section*{Projects}
-% \begin{itemize}
-%   \item \textbf{QuantSoftware Toolkit:} Open source Python library for data analysis and machine learning for finance
-%   \item \textbf{GitHub Visualization:} Data visualization of Git Log data using D3 to analyze project trends over time
-%   \item \textbf{Recommendation System:} Music and movie recommender systems using collaborative filtering on public datasets
-%   \item \textbf{Mac Setup:} Book that gives step by step instructions on setting up developer environment on Mac OS
-% \end{itemize}
-
-\vspace{-18.5pt}
-
-% education section
+% Education
 \section*{Education}
 %%EDUCATION_BLOCKS%%
 

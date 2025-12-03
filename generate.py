@@ -106,15 +106,36 @@ def _render_projects(project_blocks: List[Dict[str, Any]]) -> str:
     blocks: List[str] = []
     for pr in project_blocks:
         name = _escape_latex(pr.get("name", "Project"))
-        link = pr.get("link")
         start_date = _escape_latex(pr.get("start_date", ""))
         end_date = _escape_latex(pr.get("end_date", ""))
         
-        # Format: \textbf{Project Name} | \href{link}{github} \hfill Start -- End \\
+        # Format: \textbf{Project Name} | \href{link1}{name1} | \href{link2}{name2} \hfill Start -- End \\
         header = f"\\textbf{{{name}}}"
-        if link:
-            url_escaped = _escape_url(link)
-            header += f" | \\href{{{url_escaped}}}{{{_escape_latex('github')}}}"
+        
+        # Support both old "link" format (backward compatibility) and new "links" array format
+        link_parts: List[str] = []
+        
+        # Check for new "links" array format
+        links = pr.get("links", [])
+        if links:
+            for link_obj in links:
+                if isinstance(link_obj, dict):
+                    link_name = link_obj.get("name", "link")
+                    link_url = link_obj.get("url") or link_obj.get("link")
+                    if link_url:
+                        url_escaped = _escape_url(link_url)
+                        link_parts.append(f"\\href{{{url_escaped}}}{{{_escape_latex(link_name)}}}")
+        
+        # Fall back to old "link" format for backward compatibility
+        if not link_parts:
+            link = pr.get("link")
+            if link:
+                url_escaped = _escape_url(link)
+                link_parts.append(f"\\href{{{url_escaped}}}{{{_escape_latex('github')}}}")
+        
+        # Add links to header
+        if link_parts:
+            header += " | " + " | ".join(link_parts)
         
         # Add timeline on the right if dates are provided
         date_part = ""

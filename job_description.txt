@@ -1,43 +1,83 @@
-Rehearsals is backed by a16z, 25madison, Factorial, and notable angels from DeepMind and OpenAI including Logan Kilpatrick. The founding team is ex-DeepMind, Databricks, and Google Labs. 
+Company Description
+
+LinkedIn is the worlds largest professional network, built to create economic opportunity for every member of the global workforce. Our products help people make powerful connections, discover exciting opportunities, build necessary skills, and gain valuable insights every day. Were also committed to providing transformational opportunities for our own employees by investing in their growth. We aspire to create a culture thats built on trust, care, inclusion, and fun where everyone can succeed.
+
+Job Description
+
+At LinkedIn, our approach to flexible work is centered on trust and optimized for culture, connection, clarity, and the evolving needs of our business. The work location of this role is hybrid, meaning it will be performed both from home and from a LinkedIn office on select days, as determined by the business needs of the team.
+
+Responsibilities:
+
+You will scale distributed applications, make architectural trade-offs applying synchronous and asynchronous design patterns, write code, and deliver with speediness and quality.
+You will develop multi-tier scalable, high-volume performing, and reliable user-centric applications that operate 24x7.
+You will produce high quality software that is unit tested, code reviewed, and checked in regularly for continuous integration.
+You will provide technical leadership, driving and performing best engineering practices to initiate, plan, and execute large-scale, cross functional, and company-wide critical programs. Identify, leverage, and successfully evangelize opportunities to improve engineering productivity
 
 
+Qualifications
 
-We have founded acquired companies (x2), led Gemini computer-use and tool-use, built Google Lens, post-trained SOTA coding models, and been awarded 25+ patents between us. Our customers include F50 public companies, unicorn tech startups and household name B2C products.
+Basic Qualifications:
 
-
-We’re building on the bleeding edge of AI, simulating human preference and actions via our revealed preference engine. We’re already working with category leaders, from hospitality to AI startups, to tell them what their customers want in minutes.
-
-
-You will be part of the founding team and build your life's work. We focus on core pillars of ownership, agency, craft, and conscientiousness in everyone that we hire.
-
-
-What You’ll Do
-
-Build the full-stack experience of how the world will experience the future of AI simulations in a modern web dev stack (TypeScript, Next, React).
-Work on our data stack, including being the in-house expert on data scraping.
-Run experiments to improve our revealed preference and simulation engines.
-Work on infrastructure such as research tooling, CI/CD, and internal code review agents that scales our impact.
+BA/BS in Computer Science or related technical field or equivalent practical experience
+1+ years of industry experience in software design, development, and algorithm related solutions
+Experience programming in languages such as Python, Java, Javascript, C/C++, C#, Objective-C, Ruby, etc.
 
 
-We are particularly interested in engineers with strong foundations who have a particular aptitude in either data or frontend. This could include either or both of…
-Architecting extensible and highly performant systems for processing and storing massive datasets at scale.
-Driving the development of beautiful frontends by creating a library of thoughtfully composed, reusable components.
-Ultimately your overall capability is the most important thing. Amazing generalists are always exciting to us!
+Preferred Qualifications:
+
+Experience in designing and building infrastructure and web services at large scale.
+Expert knowledge of computer science, with strong competencies in data structures, algorithms, and software design.
+Proven coding skills in Python or JavaScript/AJAX, database design and SQL, and/or knowledge of TCP/IP and network programming.
+Experience building web applications and services with IDEs, ant, junit, etc.
+Experience with relational databases (transactional and non-transactional), database architecture, and distributed transaction management.
 
 
-Required Qualifications
+Suggested Skills:
 
-Bachelors Degree in Computer Science, Math, Physics, or equivalent experience
-3+ years of experience (open source contributions count)
-A track record of shipping quality software and infrastructure in production
-Ability to work 5 days in-person in our NYC office
+API Development
+Programming Proficiency
+Performance Optimization and Monitoring
+Collaboration
 
 
-Our Offer
+You will Benefit from our Culture
 
-Highly competitive pay and equity package
-M4 MacBook Pro
-$200/month AI tools budget
-$1,000/month for gym membership and food
-Top-tier healthcare
-Relocation if moving to NYC
+We strongly believe in the well-being of our employees and their families. That is why we offer generous health and wellness programs and time away for employees of all levels.
+
+LinkedIn is committed to fair and equitable compensation practices. The pay range for this role is $102,000 - $167,000. Actual compensation packages are based on several factors that are unique to each candidate, including but not limited to skill set, depth of experience, certifications, and specific work location. This may be different in other locations due to differences in the cost of labor.
+
+The total compensation package for this position may also include annual performance bonus, stock, benefits and/or other applicable incentive compensation plans. For more information, visit https://careers.linkedin.com/benefits
+
+Additional Information
+
+Equal Opportunity Statement 
+
+We seek candidates with a wide range of perspectives and backgrounds and we are proud to be an equal opportunity employer. LinkedIn considers qualified applicants without regard to race, color, religion, creed, gender, national origin, age, disability, veteran status, marital status, pregnancy, sex, gender expression or identity, sexual orientation, citizenship, or any other legally protected class.
+
+LinkedIn is committed to offering an inclusive and accessible experience for all job seekers, including individuals with disabilities. Our goal is to foster an inclusive and accessible workplace where everyone has the opportunity to be successful.
+
+If you need a reasonable accommodation to search for a job opening, apply for a position, or participate in the interview process, connect with us at accommodations@linkedin.com and describe the specific accommodation requested for a disability-related limitation.
+
+Reasonable accommodations are modifications or adjustments to the application or hiring process that would enable you to fully participate in that process. Examples of reasonable accommodations include but are not limited to:
+
+Documents in alternate formats or read aloud to you
+Having interviews in an accessible location
+Being accompanied by a service dog
+Having a sign language interpreter present for the interview
+
+
+A request for an accommodation will be responded to within three business days. However, non-disability related requests, such as following up on an application, will not receive a response.
+
+LinkedIn will not discharge or in any other manner discriminate against employees or applicants because they have inquired about, discussed, or disclosed their own pay or the pay of another employee or applicant. However, employees who have access to the compensation information of other employees or applicants as a part of their essential job functions cannot disclose the pay of other employees or applicants to individuals who do not otherwise have access to compensation information, unless the disclosure is (a) in response to a formal complaint or charge, (b) in furtherance of an investigation, proceeding, hearing, or action, including an investigation conducted by LinkedIn, or (c) consistent with LinkedIn's legal duty to furnish information.
+
+San Francisco Fair Chance Ordinance 
+
+Pursuant to the San Francisco Fair Chance Ordinance, LinkedIn will consider for employment qualified applicants with arrest and conviction records.
+
+Pay Transparency Policy Statement 
+
+As a federal contractor, LinkedIn follows the Pay Transparency and non-discrimination provisions described at this link: https://lnkd.in/paytransparency.
+
+Global Data Privacy Notice for Job Candidates 
+
+Please follow this link to access the document that provides transparency around the way in which LinkedIn handles personal data of employees and job applicants: https://legal.linkedin.com/candidate-portal.
