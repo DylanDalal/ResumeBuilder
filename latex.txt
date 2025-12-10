@@ -1,8 +1,8 @@
 \documentclass[11pt]{article}
 
 \usepackage[letterpaper,
-top=0.55in,
-bottom=0.55in,
+top=0.45in,
+bottom=0.45in,
 left=0.55in,
 right=0.55in]{geometry}
 
@@ -26,8 +26,8 @@ right=0.55in]{geometry}
 % Bullet formatting
 \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
 \setlist[itemize]{
-  itemsep=-1pt,       % slightly more breathing room
-  topsep=2pt,
+  itemsep=-2pt,
+  topsep=1pt,
   leftmargin=14pt
 }
 
@@ -47,13 +47,16 @@ right=0.55in]{geometry}
 
 \vspace{12pt}
 
-% Experience
-\section*{Experience}
+% Professional Experience
+\section*{Professional Experience}
 %%EXPERIENCE_BLOCKS%%
 \jobspace
 
-% Projects
-\section*{Projects}
+% Additional Experience (only shown if present)
+%%ADDITIONAL_EXPERIENCE_BLOCKS%%
+
+% Selected Projects
+\section*{Selected Projects}
 %%PROJECT_BLOCKS%%
 \jobspace
 

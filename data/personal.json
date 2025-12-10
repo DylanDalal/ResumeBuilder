@@ -1,17 +1,17 @@
 {
-  "name": "Your Name",
+  "name": "Dylan Dalal",
   "contact": {
-    "email": "your.email@example.com",
-    "portfolio": "https://example.com",
-    "github": "https://github.com/username",
-    "linkedin": "https://linkedin.com/in/username"
+    "email": "contact@dylandalal.com",
+    "portfolio": "https://www.dylandalal.com",
+    "github": "https://github.com/DylanDalal",
+    "linkedin": "https://linkedin.com/in/dylandalal"
   },
   "education": [
     {
       "degree": "B.S. Computer Science",
       "institution": "Florida State University",
       "start_date": "Jul 2019",
-      "end_date": "Dec 2022",
+      "end_date": "Dec 2024",
       "highlights": [
         "Minors in Mathematics, Physics & Film Studies",
         "Student President of the College of Arts and Sciences"

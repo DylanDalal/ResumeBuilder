@@ -1,0 +1,41 @@
+[
+    {
+        "id": "add-1",
+        "title": "Data Annotator",
+        "priority": 7,
+        "company": "DataAnnotation Tech",
+        "location": "Remote",
+        "start_date": "Apr 2025",
+        "end_date": "Present",
+        "bullets": [
+            {
+                "text": "Challenging code generation abilities by creating realistic use cases and system prompts",
+                "group": "da-clients"
+            },
+            {
+                "text": "g",
+                "group": "da-clients"
+            },
+            "Corrected LLM outputs for accuracy, robustness, and instruction following to inform model updates",
+            "Engineered multi-step prompts to expose model weaknesses in reasoning, planning, and tool-use pipelines",
+            "Created training data for improving LLM ability to write efficient and correct code",
+            "Developed skills for effectively describing human and object movement in video"
+        ],
+        "tags": ["data", "annotation", "ai", "ai-training", "llm", "video", "analysis", "prompting", "code", "refinement"]
+    },
+    {
+        "id": "add-2",
+        "title": "Research Assistant",
+        "priority": 5,
+        "company": "FSU Department of Psychology",
+        "location": "Tallahassee, FL",
+        "start_date": "Aug 2021",
+        "end_date": "Jul 2023",
+        "bullets": [
+          "Created Python data processing pipelines using NumPy, pandas, and RegEx",
+          "Interfaced with large respondant data sets to draw new conclusions from prior studies",
+          "Proposed a plan to eliminate participant biases from survey study through algorithms"
+        ],
+        "tags": ["python", "data", "automation", "research", "backend", "databases", "sql"]
+      }
+]

@@ -1,83 +1,50 @@
-Company Description
+Technology is at the heart of Disney’s past, present, and future. Disney Entertainment and ESPN Product & Technology is a global organization of engineers, product developers, designers, technologists, data scientists, and more – all working to build and advance the technological backbone for Disney’s media business globally.
 
-LinkedIn is the worlds largest professional network, built to create economic opportunity for every member of the global workforce. Our products help people make powerful connections, discover exciting opportunities, build necessary skills, and gain valuable insights every day. Were also committed to providing transformational opportunities for our own employees by investing in their growth. We aspire to create a culture thats built on trust, care, inclusion, and fun where everyone can succeed.
+The team marries technology with creativity to build world-class products, enhance storytelling, and drive velocity, innovation, and scalability for our businesses. We are Storytellers and Innovators. Creators and Builders. Entertainers and Engineers. We work with every part of The Walt Disney Company’s media portfolio to advance the technological foundation and consumer media touch points serving millions of people around the world.
 
-Job Description
+Here are a few reasons why we think you’d love working here:
 
-At LinkedIn, our approach to flexible work is centered on trust and optimized for culture, connection, clarity, and the evolving needs of our business. The work location of this role is hybrid, meaning it will be performed both from home and from a LinkedIn office on select days, as determined by the business needs of the team.
+Building the future of Disney’s media: Our Technologists are designing and building the products and platforms that will power our media, advertising, and distribution businesses for years to come.
 
-Responsibilities:
+Reach, Scale & Impact: More than ever, Disney’s technology and products serve as a signature doorway for fans' connections with the company’s brands and stories. Disney+. Hulu. ESPN. ABC. ABC News…and many more. These products and brands – and the unmatched stories, storytellers, and events they carry – matter to millions of people globally.
 
-You will scale distributed applications, make architectural trade-offs applying synchronous and asynchronous design patterns, write code, and deliver with speediness and quality.
-You will develop multi-tier scalable, high-volume performing, and reliable user-centric applications that operate 24x7.
-You will produce high quality software that is unit tested, code reviewed, and checked in regularly for continuous integration.
-You will provide technical leadership, driving and performing best engineering practices to initiate, plan, and execute large-scale, cross functional, and company-wide critical programs. Identify, leverage, and successfully evangelize opportunities to improve engineering productivity
+Innovation: We develop and implement groundbreaking products and techniques that shape industry norms, and solve complex and distinctive technical problems.
 
+Product Engineering is a unified team responsible for the engineering of Disney Entertainment & ESPN digital and streaming products and platforms. This includes product engineering, media engineering, quality assurance, engineering behind personalization, commerce, lifecycle, and identity.
 
-Qualifications
+As part of the Living Room Devices, Roku Client Application Engineering Team, you will help us push the boundaries of what is possible on some of the most interesting 10-foot devices in the marketplace! You’ll be part of the team that builds our Disney+ Direct-to-Consumer client app for streaming Disney, Pixar, Marvel, Star Wars, Hulu, ESPN, NatGeo, and ABC News content from one of the most popular streaming devices on the market.
 
-Basic Qualifications:
+We’re seeking a Software Engineer I for the Roku Client Application Engineering Team, where you’ll be part of the team that builds our Disney+ Direct-to-Consumer client app on Roku streaming devices and smart TVs. We’re looking for an engineer who has educational experience, work experience, or personal project time developing software, and is ready to help develop client apps that provide the best experiences for our viewers. Ideal technology stacks would include front-end technologies, such as Roku BrightScript & SceneGraph, React, Angular, or similar technologies.
 
-BA/BS in Computer Science or related technical field or equivalent practical experience
-1+ years of industry experience in software design, development, and algorithm related solutions
-Experience programming in languages such as Python, Java, Javascript, C/C++, C#, Objective-C, Ruby, etc.
+Responsibilities And Duties Of The Role
 
+Be a member of a team of engineers responsible for building our client app experiences in BrightScript, using the Roku SceneGraph SDK
+Contribute to the development of new application features from on-boarding to browse UI/UX experiences, analytics, video playback UI/UX and much more. If you see it on screen, you’ll likely have a chance to work on it in code
+Have the opportunity to contribute to the development of tools and systems outside of the Roku apps, such as JavaScript- & React-based web tools, gulp build scripts, AWS configurations, and Node.js services
+Work with Roku to vet new hardware, firmware and certification requirements from a client application perspective
+Collaborate closely with our client SDK engineering, design engineering, services engineering teams and product owners to help understand and communicate requirements and device limitations
 
-Preferred Qualifications:
+Basic Qualifications
 
-Experience in designing and building infrastructure and web services at large scale.
-Expert knowledge of computer science, with strong competencies in data structures, algorithms, and software design.
-Proven coding skills in Python or JavaScript/AJAX, database design and SQL, and/or knowledge of TCP/IP and network programming.
-Experience building web applications and services with IDEs, ant, junit, etc.
-Experience with relational databases (transactional and non-transactional), database architecture, and distributed transaction management.
+Experience working on user interface-level code and knowledge of common patterns and architectures (MVVM, MVC, React, etc.), and approaches to present a data-driven UX to viewers
+Familiarity with development and troubleshooting, preferably on set-top boxes or Smart TVs
+Under the guidance of more senior engineers, candidates will be expected to become proficient in the use of reusable utilities and UI components, and generalized logic that can be consumed by multiple applications
 
+Preferred Qualifications
 
-Suggested Skills:
+Preferred one year of related work experience and/or internship experience
+Experience with JavaScript client- and server-side development
+Experience with DevOps, gulp scripts, Jenkins and AWS
+Experience creating beautiful, rich, performant user interfaces, including implementing pixel-perfect designs and animations
+Previous work on a range of devices with varying performance and capabilities
+Experience with configuration-driven development
+Performance optimization and feature degradation techniques experience
+Experience creating and extending templated controls, and writing custom controls
+Experience with asynchronous and concurrent code
+Familiarity with unit testing and related patterns
 
-API Development
-Programming Proficiency
-Performance Optimization and Monitoring
-Collaboration
+Required Education
 
+Bachelor’s degree in Computer Science, Information Systems, Software or comparable field of study, and/or equivalent work experience
 
-You will Benefit from our Culture
-
-We strongly believe in the well-being of our employees and their families. That is why we offer generous health and wellness programs and time away for employees of all levels.
-
-LinkedIn is committed to fair and equitable compensation practices. The pay range for this role is $102,000 - $167,000. Actual compensation packages are based on several factors that are unique to each candidate, including but not limited to skill set, depth of experience, certifications, and specific work location. This may be different in other locations due to differences in the cost of labor.
-
-The total compensation package for this position may also include annual performance bonus, stock, benefits and/or other applicable incentive compensation plans. For more information, visit https://careers.linkedin.com/benefits
-
-Additional Information
-
-Equal Opportunity Statement 
-
-We seek candidates with a wide range of perspectives and backgrounds and we are proud to be an equal opportunity employer. LinkedIn considers qualified applicants without regard to race, color, religion, creed, gender, national origin, age, disability, veteran status, marital status, pregnancy, sex, gender expression or identity, sexual orientation, citizenship, or any other legally protected class.
-
-LinkedIn is committed to offering an inclusive and accessible experience for all job seekers, including individuals with disabilities. Our goal is to foster an inclusive and accessible workplace where everyone has the opportunity to be successful.
-
-If you need a reasonable accommodation to search for a job opening, apply for a position, or participate in the interview process, connect with us at accommodations@linkedin.com and describe the specific accommodation requested for a disability-related limitation.
-
-Reasonable accommodations are modifications or adjustments to the application or hiring process that would enable you to fully participate in that process. Examples of reasonable accommodations include but are not limited to:
-
-Documents in alternate formats or read aloud to you
-Having interviews in an accessible location
-Being accompanied by a service dog
-Having a sign language interpreter present for the interview
-
-
-A request for an accommodation will be responded to within three business days. However, non-disability related requests, such as following up on an application, will not receive a response.
-
-LinkedIn will not discharge or in any other manner discriminate against employees or applicants because they have inquired about, discussed, or disclosed their own pay or the pay of another employee or applicant. However, employees who have access to the compensation information of other employees or applicants as a part of their essential job functions cannot disclose the pay of other employees or applicants to individuals who do not otherwise have access to compensation information, unless the disclosure is (a) in response to a formal complaint or charge, (b) in furtherance of an investigation, proceeding, hearing, or action, including an investigation conducted by LinkedIn, or (c) consistent with LinkedIn's legal duty to furnish information.
-
-San Francisco Fair Chance Ordinance 
-
-Pursuant to the San Francisco Fair Chance Ordinance, LinkedIn will consider for employment qualified applicants with arrest and conviction records.
-
-Pay Transparency Policy Statement 
-
-As a federal contractor, LinkedIn follows the Pay Transparency and non-discrimination provisions described at this link: https://lnkd.in/paytransparency.
-
-Global Data Privacy Notice for Job Candidates 
-
-Please follow this link to access the document that provides transparency around the way in which LinkedIn handles personal data of employees and job applicants: https://legal.linkedin.com/candidate-portal.
+The hiring range for this position in New York, NY is $99,900.00 to $133,900.00 and in Glendale/Santa Monica, CA is $95,300-$127,800. The base pay actually offered will take into account internal equity and also may vary depending on the candidate’s geographic region, job-related knowledge, skills, and experience among other factors. A bonus and/or long-term incentive units may be provided as part of the compensation package, in addition to the full range of medical, financial, and/or other benefits, dependent on the level and position offered.

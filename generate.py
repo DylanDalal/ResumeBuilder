@@ -207,6 +207,10 @@ def render_resume_latex(template_text: str, payload: Dict[str, Any]) -> str:
     experience_block = _render_experience(payload.get("experience", []))
     projects_block = _render_projects(payload.get("projects", []))
     education_block = _render_education(payload.get("education", []))
+    additional_experience_list = payload.get("additional_experience", [])
+    additional_experience_block = ""
+    if additional_experience_list:
+        additional_experience_block = "\\section*{Additional Experience}\n" + _render_experience(additional_experience_list) + "\n\\jobspace\n"
 
     latex = template_text
     latex = latex.replace("%%NAME%%", _escape_latex(name))
@@ -215,6 +219,7 @@ def render_resume_latex(template_text: str, payload: Dict[str, Any]) -> str:
     latex = latex.replace("%%EXPERIENCE_BLOCKS%%", experience_block)
     latex = latex.replace("%%PROJECT_BLOCKS%%", projects_block)
     latex = latex.replace("%%EDUCATION_BLOCKS%%", education_block)
+    latex = latex.replace("%%ADDITIONAL_EXPERIENCE_BLOCKS%%", additional_experience_block)
     return latex
 
 

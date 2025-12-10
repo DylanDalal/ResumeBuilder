@@ -2,51 +2,103 @@
   {
     "id": "proj-1",
     "name": "Eren, A.I. Assistant Project Manager",
-    "link": "https://github.com/DylanDalal/taskmanager",
+    "links": [
+      {
+        "name": "github",
+        "url": "https://github.com/DylanDalal/taskmanager"
+      }
+    ],
     "start_date": "July 2024",
     "end_date": "Present",
     "bullets": [
-      "Automatically handles project backlogs, tasks, and prioritization using targeted calls to LLMs",
-      "Includes workflows for managing video production and software development projects"
+      "Automated backlog triage and task prioritization, reducing manual project management overhead",
+      "Includes workflows for managing video production and software development projects",
+      "Added AI-driven task expansion and delegation, converting tasks into actionable subtasks",
+      "Integrates with Jira for bidirectional issue management",
+      "Supports YouTube projects with OAuth linking, automated analytics collection, and scheduled video uploads"
     ],
     "tags": ["ai", "llm", "automation", "project-management"]
   },
   {
     "id": "proj-2",
     "name": "Passport",
-    "link": "https://github.com/DylanDalal/travel_app",
+    "links": [
+      {
+        "name": "github",
+        "url": "https://github.com/DylanDalal/travel_app"
+      }
+    ],
     "start_date": "Jan 2024",
     "end_date": "Present",
     "bullets": [
-      "Built a trip detection algorithm using ML to analyze photo location metadata",
-      "Developed Dart-based frontend in Flutter, supporting iOS, Android, and web deployment"
+      "Automated trip creation by clustering photo metadata within a timeframe and city-level stops",
+      "Developed Dart-based frontend in Flutter, supporting iOS, Android, and web deployment",
+      "Flutter front end wired to Firebase initialization and multi-screen routing",
+      "Mapbox auto-rotating globe pauses and resumes based on user interaction or trip viewing state"
     ],
-    "tags": ["flutter", "dart", "ml", "mobile", "cross-platform"]
+    "tags": ["flutter", "dart", "ml", "mobile", "cross-platform", "machine learning", "project-management"]
   },
   {
-    "id": "proj-3",
-    "name": "ResumeBuilder",
-    "link": "https://github.com/DylanDalal/ResumeBuilder",
-    "start_date": "Nov 2024",
-    "end_date": "Present",
-    "bullets": [
-      "Python CLI that generates tailored LaTeX resumes",
-      "Uses OpenAI to select relevant roles and bullets",
-      "Compiles final PDF via pdflatex"
-    ],
-    "tags": ["python", "cli", "latex"]
-  },
-  {
-    "id": "proj-3",
+    "id": "proj-4",
     "name": "AutoTube",
-    "link": "https://github.com/DylanDalal/AutoTube",
-    "start_date": "Apr 2025",
-    "end_date": "Jun 2025",
-    "bullets": [
-      "Python pipeline to automatically create YouTube shorts",
-      "Scrape top posts across any subreddit using reddit’s python library PRAW",
-      "Analyze and rewrite script using OpenAI's o4-mini model"
+    "links": [
+      {
+        "name": "github",
+        "url": "https://github.com/DylanDalal/AutoTube"
+      }
     ],
-    "tags": ["python", "cli", "latex"]
+    "start_date": "Apr 2025",
+    "end_date": "July 2025",
+    "bullets": [
+      "Python pipeline to automatically edit, produce, and publish YouTube shorts in one click",
+      "Scrape top posts across a subreddit using Reddit's PRAW Python library, then rewrite using OpenAI o4-mini"
+    ],
+    "tags": ["python", "cli", "latex", "video", "ai", "llm", "web-scraping"]
+  },
+  {
+    "id": "proj-5",
+    "name": "Leviathan Encyclopedia",
+    "links": [
+      {
+        "name": "website",
+        "url": "https://www.leviathanencyclopedia.com/"
+      },
+      {
+        "name": "ycombinator",
+        "url": "https://www.ycombinator.com/companies/leviathan"
+      }
+    ],
+    "start_date": "Nov 2025",
+    "end_date": "Dec 2025",
+    "bullets": [
+      "Automated encyclopedia entry generation and editing for Ycombinator-backed Leviathan website",
+      "Increased platform content depth 7000x by extracting open-source information into Leviathan articles",
+      "Built a full Vite + Tailwind CSS frontend and Vercel/Cloudflare R2 backend in a single week-long dev sprint",
+      "Consistently reached 1,500 weekly active users since launch"
+    ],
+    "tags": ["vite", "tailwind", "cloudflare", "r2", "frontend", "backend", "fullstack", "typescript", "react", "ai", "javascript", "llm", "project-management"]
+  },
+  {
+    "id": "proj-6",
+    "name": "Personal Website",
+    "links": [
+      {
+        "name": "website",
+        "url": "https://www.dylandalal.com/"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/DylanDalal/website"
+      }
+    ],
+    "start_date": "April 2024",
+    "end_date": "July 2025",
+    "bullets": [
+      "Developed using React and focused on performance, search engine optimization, and unique design",
+      "Client-side routing enables seamless navigation between different portfolios without page reloads",
+      "Statically prerendered content for fast First Paint and better SEO visibility",
+      "Custom animations and subtle transitions enable a smooth, modern experience"
+    ],
+    "tags": ["react", "javascript", "animation", "motion design", "seo", "performance", "typescript"]
   }
 ]
