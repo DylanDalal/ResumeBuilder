@@ -10,7 +10,6 @@
     "bullets": [
       "Designed and developed multiple production websites using Framer and React",
       "Collaborated with the marketing team to build a consistent brand identity for multiple brands",
-      "Advised Airtab Music team on software engineering best practices and backend architecture",
       "Supported full-stack development of a cross-platform application using React Native"
     ],
     "tags": ["consulting", "software", "react-native", "backend", "fullstack", "frontend"]
@@ -24,6 +23,7 @@
     "start_date": "Jul 2023",
     "end_date": "Sep 2024",
     "bullets": [
+      "Reduced task scheduling overhead by 49% with ML-driven optimization algorithm",
       {
         "text": "Built distributed Python pipelines to ensure high performance for rendering workloads",
         "group": "premise-pipeline"
@@ -32,7 +32,6 @@
         "text": "Designed a Python-based asset assembly and publishing pipeline for an animated feature film",
         "group": "premise-pipeline"
       },
-      "Reduced task scheduling overhead by 49% with ML-driven optimization algorithm",
       {
         "text": "Created deployable Python shelf tools for 100+ artists for Maya, Houdini, and Unreal Engine 5",
         "group": "premise-web"
@@ -49,7 +48,7 @@
         "text": "Developed ftrack-integrated tools to manage complex asset handoffs between departments",
         "group": "premise-web"
       },
-      "Scoped and implemented the pipeline for the Editorial, Animation, and Crowds departments",
+      "Scoped and implemented the pipeline for the Editorial, Animation, Layout, and Crowds departments",
       "Investigated and lead development of a Nuke Hiero content review and sequencer pipeline"
     ],
     "tags": ["python", "animation", "pipeline", "ftrack", "ML", "databases", "sql", "nosql"]
@@ -72,7 +71,6 @@
         "text": "Built SQL and noSQL databases to store OpenCV-assembled shots for review in Shotgrid",
         "group": "marz-databases"
       },
-      "Collaborated with stakeholders to gather requirements and feedback on user experience",
       "Designed an Emmy and Oscar-nominated VFX pipeline from scratch after company leadership change"
       
     ],
@@ -87,7 +85,14 @@
     "start_date": "Jan 2021",
     "end_date": "Dec 2023",
     "bullets": [
-      "Developed core infrastructure and pipeline tools to support LED volume film production",
+      {
+        "text": "Developed core infrastructure and pipeline tools to support LED volume film production",
+        "group": "cmpa-infra"
+      },
+      {
+        "text": "Developed core infrastructure and pipeline to support LED volume virtual production",
+        "group": "cmpa-infra"
+      },
       "Created cross-team Python I/O scripts and C++ UE plugins for ingest/playback",
       "Increased CMPA funding by 12% through presentations of stage value to University leadership",
       "Built Florida’s first higher education VP stage using Unreal Engine and real-time tools",
@@ -103,13 +108,14 @@
     "priority": 10,
     "company": "TIPT",
     "location": "West Palm Beach, FL",
-    "start_date": "Sept 2025",
+    "start_date": "Aug 2025",
     "end_date": "Present",
     "bullets": [
-      "Delivered React/Vite webapp at www.tipt.co with a dynamic landing screen, OAuth onboarding, and custom profiles",
-      "Designed a JavaScript backend to handle multiple user roles and permissions",
-      "Built a color extraction algorithm to generate color schemes for profiles based on uploaded images",
-      "Integrated with Stripe to enable end-to-end payments entirely over the web"
+      "Built React+Vite platform tipt.co with a dynamic landing screen, OAuth onboarding, and custom profiles",
+      "Delivered a JavaScript backend to handle multiple user roles and permissions",
+      "Designed a color extraction algorithm to generate color schemes for profiles based on uploaded images",
+      "Integrated with Stripe to enable end-to-end payments entirely over the web",
+      "Automatically evaluates and implements support requests using targeted calls to ChatGPT 5.1 and Codex"
     ],
     "tags": ["vite", "firebase", "stripe", "frontend", "backend", "fullstack", "react", "typescript"]
   }

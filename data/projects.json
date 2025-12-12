@@ -11,11 +11,8 @@
     "start_date": "July 2024",
     "end_date": "Present",
     "bullets": [
-      "Automated backlog triage and task prioritization, reducing manual project management overhead",
-      "Includes workflows for managing video production and software development projects",
-      "Added AI-driven task expansion and delegation, converting tasks into actionable subtasks",
-      "Integrates with Jira for bidirectional issue management",
-      "Supports YouTube projects with OAuth linking, automated analytics collection, and scheduled video uploads"
+      "Automated backlog triage and task prioritization using targeted calls to OpenAI's o4-mini model",
+      "Added AI-driven task expansion and delegation to agents, converting tasks into actionable subtasks"
     ],
     "tags": ["ai", "llm", "automation", "project-management"]
   },
@@ -51,7 +48,7 @@
     "end_date": "July 2025",
     "bullets": [
       "Python pipeline to automatically edit, produce, and publish YouTube shorts in one click",
-      "Scrape top posts across a subreddit using Reddit's PRAW Python library, then rewrite using OpenAI o4-mini"
+      "Scrape top subredditposts using Reddit's PRAW Python library, then rewrite using ChatGPT o4-mini"
     ],
     "tags": ["python", "cli", "latex", "video", "ai", "llm", "web-scraping"]
   },
@@ -73,7 +70,7 @@
     "bullets": [
       "Automated encyclopedia entry generation and editing for Ycombinator-backed Leviathan website",
       "Increased platform content depth 7000x by extracting open-source information into Leviathan articles",
-      "Built a full Vite + Tailwind CSS frontend and Vercel/Cloudflare R2 backend in a single week-long dev sprint",
+      "Built a full Vite+Tailwind frontend and Vercel/Cloudflare R2 backend in a single week-long dev sprint",
       "Consistently reached 1,500 weekly active users since launch"
     ],
     "tags": ["vite", "tailwind", "cloudflare", "r2", "frontend", "backend", "fullstack", "typescript", "react", "ai", "javascript", "llm", "project-management"]
