@@ -202,6 +202,7 @@ def _render_education(education_blocks: List[Dict[str, Any]]) -> str:
 
 def render_resume_latex(template_text: str, payload: Dict[str, Any]) -> str:
     name = payload.get("name", "")
+    print(f"\n=== render_resume_latex: name from payload = '{name}' ===")
     contact_line = _render_contact_line(payload.get("contact", {}))
     skills_block = _render_skills(payload.get("skills", {}))
     experience_block = _render_experience(payload.get("experience", []))
@@ -213,7 +214,9 @@ def render_resume_latex(template_text: str, payload: Dict[str, Any]) -> str:
         additional_experience_block = "\\section*{Additional Experience}\n" + _render_experience(additional_experience_list) + "\n\\jobspace\n"
 
     latex = template_text
-    latex = latex.replace("%%NAME%%", _escape_latex(name))
+    escaped_name = _escape_latex(name)
+    print(f"=== Replacing %%NAME%% with '{escaped_name}' ===")
+    latex = latex.replace("%%NAME%%", escaped_name)
     latex = latex.replace("%%CONTACT_LINE%%", contact_line)
     latex = latex.replace("%%SKILLS_BLOCKS%%", skills_block)
     latex = latex.replace("%%EXPERIENCE_BLOCKS%%", experience_block)

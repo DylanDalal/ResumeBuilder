@@ -689,6 +689,12 @@ def main() -> None:
     
     # Use command line args if provided, otherwise use personal.json
     name = args.name if args.name else personal_data.get("name", "John Doe")
+    # Ensure name is not empty or None
+    if not name or name.strip() == "":
+        name = "John Doe"
+        print(f"WARNING: Name was empty or None, using default 'John Doe'")
+    name = name.strip()  # Remove any leading/trailing whitespace
+    print(f"\n=== Name setting: args.name={args.name}, personal_data.name={personal_data.get('name')}, final name='{name}' ===")
     
     contact: Dict[str, str] = {}
     if args.contact:
@@ -947,9 +953,19 @@ def main() -> None:
         projects_to_send = [p for p in projects if p.get("id") in required_project_ids]
     
     # Select projects based on number of experiences
-    num_projects = 2 if num_experiences == 6 else 3
+    # When there are 4 professional experiences and 1 additional experience, limit to 2 projects
+    if len(regular_jobs) == 4 and len(additional_experience_list) == 1:
+        num_projects = 2
+        print(f"\n=== Project Selection: 4 professional + 1 additional experience detected, limiting to {num_projects} projects ===")
+    elif num_experiences == 6:
+        num_projects = 2
+        print(f"\n=== Project Selection: 6 total experiences detected, limiting to {num_projects} projects ===")
+    else:
+        num_projects = 3
+        print(f"\n=== Project Selection: {num_experiences} total experiences, selecting {num_projects} projects ===")
     projects_result = call_openai_projects(args.key, job_description, projects_to_send, num_projects) or {}
     selected_projects = projects_result.get("selected_projects", [])
+    print(f"=== LLM returned {len(selected_projects)} projects ===\n")
     
     # Ensure all required projects are included
     if required_project_ids:
@@ -973,6 +989,21 @@ def main() -> None:
                             "bullet_indices": bullet_indices
                         })
     
+    # Enforce project limit: if we have 4 professional + 1 additional, limit to 2 projects
+    # Prioritize required projects, then LLM-selected projects
+    if len(regular_jobs) == 4 and len(additional_experience_list) == 1:
+        if len(selected_projects) > 2:
+            # Keep required projects first, then limit to 2 total
+            required_project_set = set(required_project_ids or [])
+            required_projects = [p for p in selected_projects if p.get("id") in required_project_set]
+            other_projects = [p for p in selected_projects if p.get("id") not in required_project_set]
+            # Keep up to 2 projects total, prioritizing required ones
+            if len(required_projects) >= 2:
+                selected_projects = required_projects[:2]
+            else:
+                selected_projects = required_projects + other_projects[:2 - len(required_projects)]
+            print(f"\n=== Enforcing 2-project limit: reduced from {len(required_projects) + len(other_projects)} to {len(selected_projects)} projects ===")
+    
     # Fill bullets to 3 per project immediately after ChatGPT returns (before truncation)
     id_to_project = {p["id"]: p for p in projects}
     print("\n=== Project bullet counts: After ChatGPT returns ===")
@@ -980,9 +1011,9 @@ def main() -> None:
         project_id = project_selection.get("id")
         project_data = id_to_project.get(project_id)
         if project_data:
-            name = project_data.get("name", "Unknown")
+            project_name = project_data.get("name", "Unknown")
             current_indices = project_selection.get("bullet_indices", [])
-            print(f"  {name} ({project_id}): {len(current_indices)} bullets")
+            print(f"  {project_name} ({project_id}): {len(current_indices)} bullets")
             filled_indices = _fill_bullets_to_minimum(project_data, current_indices, min_bullets=3)
             project_selection["bullet_indices"] = filled_indices
             print(f"    -> After fill: {len(filled_indices)} bullets (available: {len(project_data.get('bullets', []))})")
@@ -1052,12 +1083,12 @@ def main() -> None:
         for project_selection in selection.get("selected_projects", []):
             project_id = project_selection.get("id")
             project_data = id_to_project.get(project_id)
-            name = project_data.get("name", "Unknown") if project_data else "Unknown"
+            project_name = project_data.get("name", "Unknown") if project_data else "Unknown"
             bullet_indices = project_selection.get("bullet_indices", [])
             before = len(bullet_indices)
             project_selection["bullet_indices"] = bullet_indices[:2]
             after = len(project_selection["bullet_indices"])
-            print(f"    Project: {name} ({project_id}): {before} -> {after} bullets")
+            print(f"    Project: {project_name} ({project_id}): {before} -> {after} bullets")
     
     elif num_professional == 4:
         # 4 professional experiences: up to 4 bullets each
@@ -1089,12 +1120,12 @@ def main() -> None:
         for project_selection in selection.get("selected_projects", []):
             project_id = project_selection.get("id")
             project_data = id_to_project.get(project_id)
-            name = project_data.get("name", "Unknown") if project_data else "Unknown"
+            project_name = project_data.get("name", "Unknown") if project_data else "Unknown"
             bullet_indices = project_selection.get("bullet_indices", [])
             before = len(bullet_indices)
             project_selection["bullet_indices"] = bullet_indices[:project_max]
             after = len(project_selection["bullet_indices"])
-            print(f"    Project: {name} ({project_id}): {before} -> {after} bullets")
+            print(f"    Project: {project_name} ({project_id}): {before} -> {after} bullets")
     
     elif num_professional == 3:
         # 3 professional experiences: up to 4 bullets each, projects: 3 bullets
@@ -1124,12 +1155,12 @@ def main() -> None:
         for project_selection in selection.get("selected_projects", []):
             project_id = project_selection.get("id")
             project_data = id_to_project.get(project_id)
-            name = project_data.get("name", "Unknown") if project_data else "Unknown"
+            project_name = project_data.get("name", "Unknown") if project_data else "Unknown"
             bullet_indices = project_selection.get("bullet_indices", [])
             before = len(bullet_indices)
             project_selection["bullet_indices"] = bullet_indices[:3]
             after = len(project_selection["bullet_indices"])
-            print(f"    Project: {name} ({project_id}): {before} -> {after} bullets")
+            print(f"    Project: {project_name} ({project_id}): {before} -> {after} bullets")
     
     else:
         # Default: ensure minimums but don't truncate excessively
@@ -1160,12 +1191,12 @@ def main() -> None:
         for project_selection in selection.get("selected_projects", []):
             project_id = project_selection.get("id")
             project_data = id_to_project.get(project_id)
-            name = project_data.get("name", "Unknown") if project_data else "Unknown"
+            project_name = project_data.get("name", "Unknown") if project_data else "Unknown"
             bullet_indices = project_selection.get("bullet_indices", [])
             before = len(bullet_indices)
             project_selection["bullet_indices"] = bullet_indices[:3]
             after = len(project_selection["bullet_indices"])
-            print(f"    Project: {name} ({project_id}): {before} -> {after} bullets")
+            print(f"    Project: {project_name} ({project_id}): {before} -> {after} bullets")
     
     print("=== Final bullet counts ===")
     for job_selection in selection.get("selected_jobs", []):
@@ -1182,8 +1213,8 @@ def main() -> None:
     for project_selection in selection.get("selected_projects", []):
         project_id = project_selection.get("id")
         project_data = id_to_project.get(project_id)
-        name = project_data.get("name", "Unknown") if project_data else "Unknown"
-        print(f"  Project: {name} ({project_id}): {len(project_selection.get('bullet_indices', []))} bullets")
+        project_name = project_data.get("name", "Unknown") if project_data else "Unknown"
+        print(f"  Project: {project_name} ({project_id}): {len(project_selection.get('bullet_indices', []))} bullets")
     print("==========================\n")
     
     # Fallback to default selection if no jobs were selected
@@ -1210,15 +1241,35 @@ def main() -> None:
         has_additional_fallback = bool(selection.get("additional_experience"))
         if num_professional_fallback == 5:
             project_max = 2
+            num_projects_fallback = 2
         elif num_professional_fallback == 4:
             project_max = 2 if has_additional_fallback else 3
+            num_projects_fallback = 2 if has_additional_fallback else 3
         else:
             project_max = 3
+            num_projects_fallback = 3
+        # Limit number of projects in fallback
+        if len(selection["selected_projects"]) > num_projects_fallback:
+            selection["selected_projects"] = selection["selected_projects"][:num_projects_fallback]
         for project_selection in selection["selected_projects"]:
             bullet_indices = project_selection.get("bullet_indices", [])
             project_selection["bullet_indices"] = bullet_indices[:project_max]
     
     selection.setdefault("skills", {})
+    
+    # Final safeguard: enforce 2-project limit when we have 4 professional + 1 additional
+    if len(regular_jobs) == 4 and len(additional_experience_list) == 1:
+        current_projects = selection.get("selected_projects", [])
+        if len(current_projects) > 2:
+            # Prioritize required projects if they exist
+            required_project_set = set(required_project_ids or [])
+            required_projects = [p for p in current_projects if p.get("id") in required_project_set]
+            other_projects = [p for p in current_projects if p.get("id") not in required_project_set]
+            if len(required_projects) >= 2:
+                selection["selected_projects"] = required_projects[:2]
+            else:
+                selection["selected_projects"] = required_projects + other_projects[:2 - len(required_projects)]
+            print(f"\n=== Final safeguard: Limited projects from {len(current_projects)} to {len(selection['selected_projects'])} ===")
 
     payload = build_payload(
         name=name,
@@ -1232,6 +1283,7 @@ def main() -> None:
     )
 
     template_text = read_text(args.template)
+    print(f"\n=== Before rendering: payload name = '{payload.get('name')}' ===")
     latex_text = render_resume_latex(template_text, payload)
     out = write_and_compile_latex(latex_text, args.output)
     print(out)
